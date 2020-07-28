@@ -1,0 +1,79 @@
+
+fragment userFields on User {
+  id
+  name
+  email
+  phone
+}
+
+fragment postFields on Post {
+    id
+    author {
+      ...userFields
+    }
+    content
+}
+
+query PostsByUserId ($userId: ID!) {
+  postsByUserId (userId: $userId) {
+    ...postFields
+  }
+}
+
+query PostsByCurrentUser {
+  postsByCurrentUser {
+    ...postFields
+  }
+}
+
+mutation Signup ($name: String!, $email: String!, $phone: String!, $password: String!) {
+  signup (name: $name, email: $email, phone: $phone, password: $password) {
+    sessionId
+    user {
+      ...userFields
+    }
+  }
+}
+
+mutation Login ($email: String!, $phone: String!, $password: String!) {
+  login (email: $email, phone: $phone, password: $password) {
+    sessionId
+    user {
+      ...userFields
+    }
+  }
+}
+
+mutation Logout {
+  logout {
+    success
+  }
+}
+
+mutation CreatePost ($authorId: ID!, $content: String!) {
+  createPost (authorId: $authorId, content: $content) {
+    ...postFields
+  }
+}
+
+mutation UpdatePost ($postId: ID!, $content: String!) {
+  updatePost (postId: $postId, content: $content) {
+    ...postFields
+  }
+}
+
+mutation DeletePost ($postId: ID!) {
+  deletePost (postId: $postId) {
+    success
+  }
+}
+
+# Query Variables
+
+{
+  "name": "JJ",
+  "email": "jj@gmail.com",
+  "password": "my_password123",
+  "authorId": "",
+  "content": "Another post!"
+}
