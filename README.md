@@ -22,7 +22,7 @@ Manual testing can be performed as follows.
 
 Start the application. Follow the "Setup" section to do so. You may see TypeScript warnings or errors (this is fine, see notes in the "TypeScript" seciont of this README), and then a logging statement indicating that the server has started.
 
-Load (GraphQL Playground)[https://github.com/prisma-labs/graphql-playground] or navigate to (http://localhost:3000)[http://localhost:3000]. I perfer to use the desktop application since the web browser does not save queries on reload. If you use the desktop application, you'll need to connect to the URI `http://localhost:3000`.
+Load [GraphQL Playground](https://github.com/prisma-labs/graphql-playground) or navigate to [http://localhost:3000](http://localhost:3000). I perfer to use the desktop application since the web browser does not save queries on reload. If you use the desktop application, you'll need to connect to the URI `http://localhost:3000`.
 
 You will need to modify the settings of GraphQL Playground to support auth sesions. To do so, click the settings gear in the top right. Then change the `"request.credentials"` setting from `"omit"` to `"include"`.
 
@@ -81,7 +81,7 @@ One issue faced was type support from libraries; `fastify-session` was giving a 
 
 ### Fastify
 
-Fastify was chosen for better perfomance and less overhead out of the box compared to Express. This decision was made because Point has a valid and reasonable goal of optimizing for performance and latency. We could get even faster by optimizing purely for speed (i.e. https://nanoexpress.js.org/) but I chose a middle-ground with similarity to Express. The full list of framework speed benchmarks is here: https://github.com/the-benchmarker/web-frameworks. For even better performance, we could use a true statically-typed compiled language.
+Fastify was chosen for better perfomance and less overhead out of the box compared to Express. This decision was made because Point has a valid and reasonable goal of optimizing for performance and latency. We could get even faster by optimizing purely for speed (i.e. [https://nanoexpress.js.org/](https://nanoexpress.js.org/)) but I chose a middle-ground with similarity to Express. The full list of framework speed benchmarks is here: [https://github.com/the-benchmarker/web-frameworks](https://github.com/the-benchmarker/web-frameworks). For even better performance, we could use a true statically-typed compiled language.
 
 #### Addendum: Why even use a web framework for a GraphQL server?
 
